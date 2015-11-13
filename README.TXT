@@ -10,3 +10,6 @@ VERSION or DATE: V1 Date: 11/11/2015
 HOW TO START THIS PROJECT: Copy all the java files in Bluej and run the code
 AUTHORS: Shruti, Nishank, RaiKirat, Harleen, Piyush
 USER INSTRUCTIONS:
+The BuleJ Project hirerachry:
+  World Classes: FlappyWorld
+  Actor Classes: FlappyBird, Score, GameOver, Pipe
