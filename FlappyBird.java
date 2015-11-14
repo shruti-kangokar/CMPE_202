@@ -9,8 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class FlappyBird extends Actor
 {
     double dy = 0;
-    double g  = 0.9;
-    double BOOST_SPEED = -12;
+    double g  = 0.5;
+    double BOOST_SPEED = -5;
     
     public void act() 
     {
@@ -24,7 +24,7 @@ public class FlappyBird extends Actor
         }
         
         //If user pressed UP arrow, launch flappy Bird upward
-        if(Greenfoot.isKeyDown("up") == true){
+        if(Greenfoot.isKeyDown("up") == true || Greenfoot.isKeyDown("space") == true){
             dy = BOOST_SPEED;
         }
         
