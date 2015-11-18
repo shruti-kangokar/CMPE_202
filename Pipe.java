@@ -15,6 +15,7 @@ public class Pipe extends Actor
      */
     public void act() 
     {
+        //System.out.println("pipe showed");
        //Slide the pipe tp the left by 4 every act step 
       setLocation(getX() - PIPE_SPEED , getY());
     }    

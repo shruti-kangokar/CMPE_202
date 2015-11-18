@@ -11,22 +11,27 @@ public class FlappyBird extends Actor
     double dy = 0;
     double g  = 0.5;
     double BOOST_SPEED = -5;
+    boolean intersection=false;
     
     public void act() 
     {
         rotateFlappyBird();
         setLocation(getX(), (int)(getY() + dy));
-        
+        Actor actor=getOneIntersectingObject(Pipe.class);
         //if we are touching a pipe game over
-        if(getOneIntersectingObject(Pipe.class)!=null)
+        if(actor!=null)
         {
             displayGameOver();
         }
         
         //If user pressed UP arrow, launch flappy Bird upward
+        if(intersection){
+            
+        }else{
         if(Greenfoot.isKeyDown("up") == true || Greenfoot.isKeyDown("space") == true){
             dy = BOOST_SPEED;
         }
+    }
         
        
         //If FlappyBird drops out of the world, Game Over:      
@@ -41,7 +46,12 @@ public class FlappyBird extends Actor
     private void displayGameOver(){
         GameOver gameOver = new GameOver();
         getWorld().addObject(gameOver,getWorld().getWidth()/2,getWorld().getHeight()/2);
-        Greenfoot.stop();
+        
+        PlayAgainButton playagainbutton=new PlayAgainButton();
+        getWorld().addObject(playagainbutton,getWorld().getWidth()/2,getWorld().getHeight()/2+70);
+        intersection=true;
+        //getWorld().removeObject(botPipe);
+        //Greenfoot.stop();
         
     }
     

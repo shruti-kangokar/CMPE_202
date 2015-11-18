@@ -14,7 +14,9 @@ public class FlappyWorld extends World
     int score = 0;
     Score newScore = null;
     int FIRST_PIPE = 240;
-    
+    FlappyBird flappy;
+    Pipe topPipe;
+    Pipe botPipe;
     /**
      * Constructor for objects of class FlappyWorld.
      * 
@@ -28,26 +30,30 @@ public class FlappyWorld extends World
         setPaintOrder(GameOver.class, Score.class, FlappyBird.class,Pipe.class);
         
          //Create a flappy bird object
-        FlappyBird flappy = new FlappyBird();
+        flappy = new FlappyBird();
         //Add flappy bird to our world
         addObject(flappy,100,getHeight()/2);
         
         //Create a Score Object and add it to our world
         newScore = new Score();
         newScore.setScore(0);
-        addObject(newScore, 100, 100);
+        addObject(newScore, 300, 20);
     }
     
     public void act()
     {
        pipeCounter++;
-       
-       if(pipeCounter % 100 == 0)
-       {
-           //Create a pipe every 100 steps
-           createPipes();
-           
-        } 
+        if(flappy.intersection){
+            this.removeObject(botPipe);
+            this.removeObject(topPipe);
+            this.removeObject(flappy);
+        }else{
+            
+                if(pipeCounter % 100 == 0)
+                {
+                    createPipes();
+                }
+        
         //Once the flappy bird reaches first pipe we wil increase the bird count
         if(pipeCounter >= FIRST_PIPE)
         {
@@ -62,16 +68,18 @@ public class FlappyWorld extends World
             
         }
     }
+    }
     
     public void createPipes()
     {
-        Pipe topPipe = new Pipe();
-        Pipe botPipe = new Pipe();
-        
+        topPipe = new Pipe();
+        botPipe = new Pipe();
+        botPipe.setRotation(180);
         GreenfootImage image = botPipe.getImage();
         
         addObject(botPipe, getWidth(), getHeight()/2 + image.getHeight() - Greenfoot.getRandomNumber(100)); 
         addObject(topPipe, getWidth(), botPipe.getY() - image.getHeight() - PIPE_SPACING);
     }
+    
     
 }
