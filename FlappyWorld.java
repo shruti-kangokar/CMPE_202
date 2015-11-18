@@ -15,8 +15,11 @@ public class FlappyWorld extends World
     Score newScore = null;
     int FIRST_PIPE = 240;
     FlappyBird flappy;
+    Settings newSettings;
     Pipe topPipe;
     Pipe botPipe;
+    StartGame startgame;
+    
     /**
      * Constructor for objects of class FlappyWorld.
      * 
@@ -28,46 +31,58 @@ public class FlappyWorld extends World
         
          //set paint order
         setPaintOrder(GameOver.class, Score.class, FlappyBird.class,Pipe.class);
+        startgame=new StartGame();
+        addObject(startgame,getWidth()/2,getHeight()/2+70);
         
-         //Create a flappy bird object
-        flappy = new FlappyBird();
-        //Add flappy bird to our world
-        addObject(flappy,100,getHeight()/2);
-        
-        //Create a Score Object and add it to our world
         newScore = new Score();
         newScore.setScore(0);
         addObject(newScore, 300, 20);
+        flappy = new FlappyBird();
+        addObject(flappy,100,getHeight()/2);
+         //Create a Settings Object and add it to our world
+        newSettings= new Settings();
+        //newSettings.setScore(0);
+        addObject(newSettings, 550, 70);
+        
     }
     
     public void act()
-    {
-       pipeCounter++;
+    { 
         if(flappy.intersection){
             this.removeObject(botPipe);
             this.removeObject(topPipe);
             this.removeObject(flappy);
-        }else{
-            
-                if(pipeCounter % 100 == 0)
-                {
-                    createPipes();
-                }
-        
-        //Once the flappy bird reaches first pipe we wil increase the bird count
-        if(pipeCounter >= FIRST_PIPE)
-        {
-             if(flappyCounter % 100 == 0)
-             {
-                 //Create a pipe object
-                score++;
-                newScore.setScore(score);
-           
-                }
-            flappyCounter++;
-            
         }
-    }
+            if(startgame.start==true){
+                this.removeObject(startgame);
+           pipeCounter++;
+           if(flappy.intersection){
+                this.removeObject(botPipe);
+                this.removeObject(topPipe);
+                this.removeObject(flappy);
+            }else{
+                
+                    if(pipeCounter % 100 == 0)
+                    {
+                        createPipes();
+                    }
+            
+            //Once the flappy bird reaches first pipe we wil increase the bird count
+            if(pipeCounter >= FIRST_PIPE)
+            {
+                 if(flappyCounter % 100 == 0)
+                 {
+                     //Create a pipe object
+                    score++;
+                    newScore.setScore(score);
+               
+                    }
+                flappyCounter++;
+                
+            }
+        
+            }
+        }
     }
     
     public void createPipes()

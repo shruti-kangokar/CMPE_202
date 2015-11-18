@@ -12,38 +12,41 @@ public class FlappyBird extends Actor
     double g  = 0.5;
     double BOOST_SPEED = -5;
     boolean intersection=false;
+    StartGame startgame=new StartGame();
     
     public void act() 
     {
-        rotateFlappyBird();
-        setLocation(getX(), (int)(getY() + dy));
-        Actor actor=getOneIntersectingObject(Pipe.class);
+        if(startgame.start==true){
+            rotateFlappyBird();
+            setLocation(getX(), (int)(getY() + dy));
+            Actor actor=getOneIntersectingObject(Pipe.class);
         //if we are touching a pipe game over
-        if(actor!=null)
-        {
-            displayGameOver();
-        }
-        
-        //If user pressed UP arrow, launch flappy Bird upward
-        if(intersection){
+            if(actor!=null)
+            {
+                displayGameOver();
+            }
             
-        }else{
-        if(Greenfoot.isKeyDown("up") == true || Greenfoot.isKeyDown("space") == true){
-            dy = BOOST_SPEED;
-        }
-    }
-        
-       
-        //If FlappyBird drops out of the world, Game Over:      
-        if(getY() > getWorld().getHeight()){
-            displayGameOver();
-        } 
-        //update the UI
-        dy = dy+g;
-      
+            //If user pressed UP arrow, launch flappy Bird upward
+                if(intersection){
+                    
+                }else{
+                if(Greenfoot.isKeyDown("up") == true || Greenfoot.isKeyDown("space") == true){
+                    dy = BOOST_SPEED;
+                }
+            }
+            
+           
+            //If FlappyBird drops out of the world, Game Over:      
+            if(getY() > getWorld().getHeight()){
+                displayGameOver();
+            } 
+            //update the UI
+            dy = dy+g;
+       }
     }  
     
     private void displayGameOver(){
+        startgame.start=false;
         GameOver gameOver = new GameOver();
         getWorld().addObject(gameOver,getWorld().getWidth()/2,getWorld().getHeight()/2);
         
