@@ -7,16 +7,16 @@ public class FlappyBird extends Actor
     double BOOST_SPEED = -5;
     int power=0;
     
-    boolean pipeintersectionState=false;
+    boolean pipeIntState=false;
     
     boolean highPowerState = false;
     
-    boolean powerIntersectionState = false;
+    boolean powerIntState = false;
     
-    StartGame startgame=new StartGame();
+    StartGame startgame = new StartGame();
     
-    Butterfly bfly=new Butterfly();
-    PowerScore ps=new PowerScore();
+    Butterfly bfly = new Butterfly();
+    PowerScore ps = new PowerScore();
     
 
     public void act() 
@@ -31,43 +31,39 @@ public class FlappyBird extends Actor
             
             Actor powerIntersection = getOneIntersectingObject(Power.class);
             
-            if(powerIntersection!=null) //&& Two strwberries then change to angry)
+            if(powerIntersection!=null)
             {
                 power++;
-                System.out.println("Current Power level: " + power);
-                powerIntersectionState = true;
+                powerIntState = true;
                 
-                ps.setPowScore(power);//updating the score
+                ps.setPowScore(power);
 
-                if(power > 2)// && highPowerState == false)
+                if(power > 2)
                 {
-                    System.out.println("Getting ready to switch states!");
                     highPowerState = true;
-                    bfly.setSwordState();
                     this.setImage("angry-bird-icon.png");
-                    
                 }
             }
-            //if we are touching a pipe game over
             
             if(pipeIntersection!=null) {
-                pipeintersectionState = true;
-                if(highPowerState==true){
-                    
+                
+                if(highPowerState == true){                    
                     GreenfootImage img= new GreenfootImage("flappybird1.png");
                     this.setImage("flappybird1.png");  
-                    
+                    highPowerState = false;
+                    pipeIntersection=null;
+                    //getWorld().removeObjects(getIntersectingObjects(Pipe.class));
+                    setLocation(200,200);
                 }
                 else
                 {
-                    System.out.println("About to Die");
-                    highPowerState=false;
+                    pipeIntState = true;
                     displayGameOver();
                 }
                 
             }
             //If user pressed UP arrow and SPACE bar launch flappy Bird upward
-            if(!pipeintersectionState){
+            if(!pipeIntState){
                 if(Greenfoot.isKeyDown("up") == true || Greenfoot.isKeyDown("space") == true){
                     dy = BOOST_SPEED;
                 }
@@ -92,10 +88,6 @@ public class FlappyBird extends Actor
         
         PlayAgainButton playagainbutton=new PlayAgainButton();
         getWorld().addObject(playagainbutton,getWorld().getWidth()/2,getWorld().getHeight()/2+70);
-        
-        pipeintersectionState=false;
-        //getWorld().removeObject(botPipe);
-        //Greenfoot.stop();
         
     }
     

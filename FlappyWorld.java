@@ -31,15 +31,10 @@ public class FlappyWorld extends World
      * 
      */
     public FlappyWorld()
-    {    
-       
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+    {   
         super(600, 400, 1, false); 
-        
-         //set paint order
         setPaintOrder(GameOver.class, Score.class, FlappyBird.class,Pipe.class, Power.class);
         
-        //Create a new start game and add the object to the world
         startgame=new StartGame();
         addObject(startgame,getWidth()/2,getHeight()/2+70);
         
@@ -48,53 +43,31 @@ public class FlappyWorld extends World
         addObject(newScore, 450, 15);
         
         flappy = new FlappyBird();
-        
         addObject(flappy,100,getHeight()/2);
         
-       
-       /*powerScore = new PowerScore();
-       powerScore.setPowScore(0);
-       addObject(powerScore,600,15);*/
-       
-       pImg=new PowerImage();
-       addObject(pImg,540,21);
-       
-       /*butter=new Butterfly();
-       addObject(butter,400,21);*/
-       
-       
+        pImg=new PowerImage();
+        addObject(pImg,540,21);
     }
 
     public void act()
     { 
         
-        if(flappy.pipeintersectionState && flappy.highPowerState==false){
+        if(flappy.pipeIntState){
             this.removeObject(botPipe);
             this.removeObject(topPipe);
-            flappy.pipeintersectionState = false;
-            
-            //this.removeObject(flappy);
+            this.removeObject(flappy);
+            flappy.pipeIntState = false;
         }
         
-      if(flappy.powerIntersectionState){
+        if(flappy.powerIntState){
             this.removeObject(newPower);
-            flappy.powerIntersectionState = false;
+            flappy.powerIntState = false;
         }
-          /*   powScore++;
-           //System.out.println("Power Score" +powScore);
-           powerScore.setPowScore(powScore);
-           if(powScore > 1)
-           {
-               flappy.setImage("angry-bird-icon.png");
-               butter.setSwordState();
-                this.removeObject(butter);
-            }
-        }*/
             
         if(startgame.start==true){
             this.removeObject(startgame);
             pipeCounter++;
-           if(!flappy.pipeintersectionState){
+           if(!flappy.pipeIntState){
                
               if(pipeCounter % 100 == 0)
                  {
