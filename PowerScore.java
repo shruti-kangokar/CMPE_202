@@ -1,29 +1,26 @@
 import greenfoot.*; 
-import java.awt.Color;
-import java.awt.Font;
-
- // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.awt.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Score here.
+ * Write a description of class PowerScore here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Score extends Actor
+public class PowerScore extends Actor
 {
     /**
-     * Act - do whatever the Score wants to do. This method is called whenever
+     * Act - do whatever the PowerScore wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-  
-   public Score()
+    
+   public PowerScore()
    {
-       GreenfootImage newImage = new  GreenfootImage(70,50);
+       GreenfootImage newImage = new  GreenfootImage(120,50);
        setImage(newImage);
     }
     
-    public void setScore(int score)
+    public void setPowScore(int score)
     {
          GreenfootImage newImage = getImage();
          newImage.clear();
@@ -38,5 +35,5 @@ public class Score extends Actor
          newImage.drawString("" +score, 20, 40);
          setImage(newImage);
     }
-    
 }
+
