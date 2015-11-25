@@ -25,6 +25,8 @@ public class FlappyWorld extends World
     Power newPower;
     PowerImage pImg;
    //Butterfly butter;
+   CoinsCollected coinCltcd = new CoinsCollected(flappy);
+
   
     /**
      * Constructor for objects of class FlappyWorld.
@@ -47,6 +49,9 @@ public class FlappyWorld extends World
         
         pImg=new PowerImage();
         addObject(pImg,540,21);
+              
+        addObject(coinCltcd,99,8);
+        flappy.attach(coinCltcd);
     }
 
     public void act()
@@ -99,6 +104,16 @@ public class FlappyWorld extends World
         botPipe.setRotation(180);
         newPower= new Power();
        
+        Coin[] coins = new Coin[5];
+        
+        for(int i = 0; i < coins.length; i++)
+        {
+            coins[i] = new Coin();
+            int incr = 0;
+            int coinX = getWidth()/2 + 50 + Greenfoot.getRandomNumber(100);
+            int coinY = getHeight()/2 + Greenfoot.getRandomNumber(100);
+            addObject(coins[i], coinX, coinY);
+        }
         
         GreenfootImage image = botPipe.getImage();
         GreenfootImage powerimage = newPower.getImage();

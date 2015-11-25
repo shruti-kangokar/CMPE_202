@@ -1,6 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
 
-public class FlappyBird extends Actor
+public class FlappyBird extends Actor implements Subject
 {
     double dy = 0;
     double g  = 0.5;
@@ -17,10 +18,31 @@ public class FlappyBird extends Actor
     
     Butterfly bfly = new Butterfly();
     PowerScore ps = new PowerScore();
-    
+    private ArrayList<Observer> observers = new ArrayList<Observer>();
+    public void attach(Observer obj) {
+        observers.add(obj) ;
+    }
+
+    public void detach(Observer obj) {
+        observers.remove(obj) ;
+    }
+
+    public void notifyObservers() {
+        for (Observer obj  : observers)
+        {
+            obj.update();
+        }
+    }
 
     public void act() 
     {
+        /*
+         * Checking if the flappyBird is touching the coin and if yes then remove coin object from FlappyWorld
+         */
+        if(isTouching(Coin.class))
+        {
+              get(Coin.class);
+        }
         if(startgame.start==true){
             rotateFlappyBird();
             //move(5);
@@ -80,6 +102,24 @@ public class FlappyBird extends Actor
             dy = dy+g;
        }
     }  
+    
+    //method to check whether flappybird touches the coin  
+    public boolean isTouching(Class clss)
+    {
+        Actor actor = getOneObjectAtOffset(5,5,clss);
+        return actor != null;
+    }
+
+    //method to remove coin object if flappybird touches coin
+    public void get(Class clss)
+    {
+        Actor actor = getOneObjectAtOffset(0, 0, clss);
+        if(actor != null)
+        {
+            getWorld().removeObject(actor);
+        }
+    }
+    
     private void displayGameOver(){
         startgame.start=false;
         
