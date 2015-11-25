@@ -1,6 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-
 public interface Subject {
  
 	public abstract void attach(Observer obj);

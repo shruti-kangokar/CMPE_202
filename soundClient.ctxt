@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=
+comment0.target=soundClient()
+comment1.params=command
+comment1.target=void\ handleSound(java.lang.String)
+comment1.text=public\ soundHandler\ geth1()\r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ return\ h1;\r\n}
+numComments=2

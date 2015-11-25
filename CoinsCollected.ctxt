@@ -1,10 +1,8 @@
 #BlueJ class context
-comment0.target=CoinsCollected
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ CoinsCollected\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=thesubject
-comment1.target=CoinsCollected(FlappyBird)
+comment0.params=thesubject
+comment0.target=CoinsCollected(FlappyBird)
+comment1.params=
+comment1.target=void\ update()
 comment2.params=
-comment2.target=void\ update()
-comment3.params=
-comment3.target=void\ show()
-numComments=4
+comment2.target=void\ show()
+numComments=3

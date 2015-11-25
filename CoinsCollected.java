@@ -33,6 +33,6 @@ public class CoinsCollected extends Actor implements Observer
         img.setColor(Color.WHITE);
         img.setFont(new Font("Trebuchet MS", Font.BOLD,13));
         //img.setFont(img.getFont().deriveFont(Font.BOLD,15));
-        img.drawString(""+score,4,20);
+        img.drawString("" + score,4,20);
     }
 }
