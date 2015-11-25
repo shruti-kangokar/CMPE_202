@@ -99,6 +99,7 @@ public class FlappyBird extends Actor implements Subject
                 else
                 {
                     pipeIntState = true;
+                    
                     displayGameOver();
                 }
                 
@@ -112,11 +113,10 @@ public class FlappyBird extends Actor implements Subject
                     
                 }
             }
-            
            
             //If FlappyBird drops out of the world, Game Over:      
             if(getY() > getWorld().getHeight()){
-                
+                sc.handleSound("stop");
                 displayGameOver();
                 
             } 
@@ -144,7 +144,7 @@ public class FlappyBird extends Actor implements Subject
     
     private void displayGameOver(){
         startgame.start=false;
-        
+        sc.handleSound("stop");
         GameOver gameOver = new GameOver();
         getWorld().addObject(gameOver,getWorld().getWidth()/2,getWorld().getHeight()/2);
         

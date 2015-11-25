@@ -19,7 +19,7 @@ public class GameOver extends Actor
     }    
      public GameOver()
     {
-
+        sc.handleSound("stop");
         sc.handleSound("death");
     }
 }

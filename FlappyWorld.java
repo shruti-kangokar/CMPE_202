@@ -15,7 +15,7 @@ public class FlappyWorld extends World
     int powScore = 0;
     int FIRST_PIPE = 240;
     
-    
+    soundClient sc = new soundClient();
     Score newScore = null;
     PowerScore powerScore =null;
     Health health = new Health();
@@ -25,9 +25,10 @@ public class FlappyWorld extends World
     StartGame startgame;
     Power newPower;
     PowerImage pImg;
-
+    GreenfootSound music = new GreenfootSound("Music.mp3"); 
     //Butterfly butter;
     CoinsCollected coinCltcd = new CoinsCollected(flappy);
+    
     
 
     /**
@@ -55,6 +56,7 @@ public class FlappyWorld extends World
         addObject(coinCltcd,99,8);
         flappy.attach(coinCltcd);
 
+       
       
     }
     public Health getHealth()
@@ -65,10 +67,12 @@ public class FlappyWorld extends World
     {
         addObject(health, 200,40);
     }
+   
     public void act()
     { 
-
+        
         if(flappy.pipeIntState){
+            sc.handleSound("stop");
             this.removeObject(botPipe);
             this.removeObject(topPipe);
             this.removeObject(flappy);
@@ -82,6 +86,8 @@ public class FlappyWorld extends World
 
         if(startgame.start==true){
             this.removeObject(startgame);
+            sc.handleSound("titlesong");
+            
             pipeCounter++;
            
             if(!flappy.pipeIntState){

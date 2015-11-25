@@ -9,6 +9,7 @@ public class soundClient
     private soundHandler h7 = new ConcreteHandler7() ;
     
     
+    
     public soundClient()
     {
          h1.setSuccessor(h2);
@@ -17,6 +18,7 @@ public class soundClient
          h4.setSuccessor(h5);
          h5.setSuccessor(h6);
          h6.setSuccessor(h7);
+         
          
     }
 
