@@ -1,10 +1,5 @@
 #BlueJ class context
-comment0.params=
-comment0.target=boolean\ hasHalf()
+comment0.target=BirdState
 comment1.params=
-comment1.target=boolean\ hasNoSword()
-comment2.params=
-comment2.target=void\ setState()
-comment3.params=
-comment3.target=void\ display()
-numComments=4
+comment1.target=void\ setBirdImage()
+numComments=2

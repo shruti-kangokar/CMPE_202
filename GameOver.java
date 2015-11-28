@@ -12,14 +12,8 @@ public class GameOver extends Actor
      * Act - do whatever the GameOver wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    soundClient sc = new soundClient();
     public void act() 
     {
       
     }    
-     public GameOver()
-    {
-        sc.handleSound("stop");
-        sc.handleSound("death");
-    }
 }

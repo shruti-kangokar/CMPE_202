@@ -1,7 +1,9 @@
 #BlueJ class context
-comment0.params=
-comment0.target=PowerScore()
-comment0.text=\r\n\ Act\ -\ do\ whatever\ the\ PowerScore\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-comment1.params=score
-comment1.target=void\ setPowScore(int)
-numComments=2
+comment0.target=PowerScore
+comment0.text=\n\ Write\ a\ description\ of\ class\ PowerScore\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=PowerScore()
+comment1.text=\n\ Act\ -\ do\ whatever\ the\ PowerScore\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment2.params=score
+comment2.target=void\ setPowScore(int)
+numComments=3

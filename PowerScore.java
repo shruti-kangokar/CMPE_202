@@ -28,11 +28,13 @@ public class PowerScore extends Actor
          Color c = new Color(255,255,255,0);
          Font f = new Font("Comic Sans MS", Font.ITALIC, 20);
          newImage.setFont(f);
+         
          newImage.setColor(c);
          newImage.fill();
          newImage.setColor(Color.black);
          newImage.drawString("" +score, 20, 40);
          setImage(newImage);
     }
+    
 }
 

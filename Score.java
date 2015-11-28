@@ -13,18 +13,24 @@ import java.awt.Font;
 public class Score extends Actor
 {
     /**
-     * Act - do whatever the Score wants to do. This method is called whenever
+     * Act - do whatever the score wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-  
+   
    public Score()
    {
        GreenfootImage newImage = new  GreenfootImage(70,50);
        setImage(newImage);
     }
     
-    public void setScore(int score)
-    {
+   public Score(int width, int height)
+   {
+       GreenfootImage newImage = new  GreenfootImage(width, height);
+       setImage(newImage);
+    }
+    
+   public void setScore(int score)
+   {
          GreenfootImage newImage = getImage();
          newImage.clear();
          
@@ -35,8 +41,7 @@ public class Score extends Actor
          newImage.setColor(c);
          newImage.fill();
          newImage.setColor(Color.black);
-         newImage.drawString("" +score, 20, 40);
+         newImage.drawString("" + score, 20, 40);
          setImage(newImage);
-    }
-    
+   }
 }

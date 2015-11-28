@@ -1,5 +1,4 @@
-import greenfoot.*;
-import java.awt.*;
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class Health here.
@@ -9,33 +8,12 @@ import java.awt.*;
  */
 public class Health extends Actor
 {
-    int health = 5;
-    int healthWidth = 80;
-    int healthHeight = 15;
-    int pixelsPerHealthPoint = (int)healthWidth/health;
     /**
      * Act - do whatever the Health wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
-    public Health()
+    public void act() 
     {
-        
-    }
-    
-   
-    
-    public void show(int health)
-    {
-         health--;
-         setImage(new GreenfootImage(healthWidth + 2, healthHeight + 2));
-         GreenfootImage myImage = getImage();
-         myImage.setColor(Color.WHITE);
-         myImage.drawRect(0,0,healthWidth + 1 , healthHeight + 1);
-         myImage.setColor(Color.RED);
-         myImage.fillRect(1,1, health*pixelsPerHealthPoint , healthHeight);
-         
-         
-    }
-    
+        // Add your action code here.
+    }    
 }

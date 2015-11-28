@@ -1,31 +1,34 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
-
 public class FlappyBird extends Actor implements Subject
 {
+    BirdState angryBirdState;
+    BirdState flappyBirdState;
+    BirdState birdState;
+    
+    FlappyBird()
+    {
+        angryBirdState = new AngryBirdState(this);
+        flappyBirdState = new FlappyBirdState(this);
+        birdState = flappyBirdState;
+    }
+    
     double dy = 0;
     double g  = 0.5;
     double BOOST_SPEED = -5;
     int power=0;
-    int health = 100;
-    FlappyWorld flappyworld ;
+    Actor pipeIntersection;
     boolean pipeIntState=false;
     
     boolean highPowerState = false;
     
     boolean powerIntState = false;
     
-    soundClient sc = new soundClient();
     StartGame startgame = new StartGame();
-    FlappyBird flappy;
-    Butterfly bfly = new Butterfly();
-    Health healthbar = new Health();
-    PowerScore ps = new PowerScore();
+    
     private ArrayList<Observer> observers = new ArrayList<Observer>();
-    public FlappyBird(){
-    sc.handleSound("Music");
-    }
+    
     public void attach(Observer obj) {
         observers.add(obj) ;
     }
@@ -41,29 +44,41 @@ public class FlappyBird extends Actor implements Subject
         }
     }
 
+    public void setBirdState(BirdState newBirdState)
+    {
+        birdState = newBirdState;
+    }
+    
+    public void setBirdImage()
+    {
+        birdState.setBirdImage();
+    }
+    
+    public BirdState getFlappyBirdState()
+    {
+       return flappyBirdState;
+    }
+    
+    public BirdState getAngryBirdState()
+    {
+       return angryBirdState;
+    }
+    
     public void act() 
     {
         /*
          * Checking if the flappyBird is touching the coin and if yes then remove coin object from FlappyWorld
          */
-        if(isTouching(Coin.class))
-        {
-              get(Coin.class);
-              sc.handleSound("coin");
-        }
+       if(isTouching(Coin2.class))
+       {
+           get(Coin2.class);
+       }
         if(startgame.start==true){
             rotateFlappyBird();
-            /*if(Greenfoot.isKeyDown("up") == true || Greenfoot.isKeyDown("space") == true)
-            {
-                health-- ;
-                ho.show(health);
-                
-            }*/
             //move(5);
             setLocation(getX(), (int)(getY() + dy));
-            getWorld().addObject(ps,600,15);
             
-            Actor pipeIntersection = getOneIntersectingObject(Pipe.class);
+            pipeIntersection = getOneIntersectingObject(Pipe.class);
             
             Actor powerIntersection = getOneIntersectingObject(Power.class);
             
@@ -71,35 +86,30 @@ public class FlappyBird extends Actor implements Subject
             {
                 power++;
                 powerIntState = true;
-               
-                ps.setPowScore(power);
-                if(power > 2)
+                System.out.println("Power level is now: " + power);
+                if(power == 3)
                 {
                     highPowerState = true;
-                    this.setImage("angry-bird-icon.png");
-                    sc.handleSound("angry");
-                }
-                else
-                {
-                    sc.handleSound("power");
+                    System.out.println("Changing highPowerState to true");
+                    //this.setImage("angry-bird-icon.png");
                 }
             }
             
             if(pipeIntersection!=null) {
                 
-                if(highPowerState == true){                    
-                    GreenfootImage img= new GreenfootImage("flappybird1.png");
-                    this.setImage("flappybird1.png");  
-                    sc.handleSound("statechange");
+                if(highPowerState == true){                   
+                    //GreenfootImage img= new GreenfootImage("flappybird1.png");
+                    //this.setImage("flappybird1.png");  
                     highPowerState = false;
-                    pipeIntersection=null;
+                    System.out.println("Changing highPowerState to false");
+                    //pipeIntersection=null;
+                    power = 0;
                     //getWorld().removeObjects(getIntersectingObjects(Pipe.class));
                     setLocation(200,200);
                 }
                 else
                 {
                     pipeIntState = true;
-                    
                     displayGameOver();
                 }
                 
@@ -108,15 +118,13 @@ public class FlappyBird extends Actor implements Subject
             if(!pipeIntState){
                 if(Greenfoot.isKeyDown("up") == true || Greenfoot.isKeyDown("space") == true){
                     dy = BOOST_SPEED;
-                    healthbar.show(health);
-                    
-                    
                 }
             }
+            
            
             //If FlappyBird drops out of the world, Game Over:      
             if(getY() > getWorld().getHeight()){
-                sc.handleSound("stop");
+                
                 displayGameOver();
                 
             } 
@@ -144,7 +152,7 @@ public class FlappyBird extends Actor implements Subject
     
     private void displayGameOver(){
         startgame.start=false;
-        sc.handleSound("stop");
+        
         GameOver gameOver = new GameOver();
         getWorld().addObject(gameOver,getWorld().getWidth()/2,getWorld().getHeight()/2);
         
