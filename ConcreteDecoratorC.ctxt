@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=ConcreteDecoratorC
+comment1.params=c
+comment1.target=ConcreteDecoratorC(Component)
+comment2.params=
+comment2.target=FlappyWorld\ operation()
+comment3.params=world
+comment3.target=FlappyWorld\ addedBehavior(FlappyWorld)
+numComments=4

@@ -10,6 +10,7 @@ public class Coin2 extends Collectible
 {
     
    int COIN_SPEED = 5;
+   soundClient sc = new soundClient();
     public void act() 
     {
       setLocation(getX()-COIN_SPEED, getY());

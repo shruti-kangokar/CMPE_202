@@ -1,4 +1,5 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+ import greenfoot.*;
+import java.awt.*;
 
 /**
  * Write a description of class Health here.
@@ -8,12 +9,54 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Health extends Actor
 {
+    int health = 100;
+    int healthWidth = 100;
+    int healthHeight = 15;
+    int pixelsPerHealthPoint = 1;
     /**
      * Act - do whatever the Health wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act() 
+    /*public Health()
     {
-        // Add your action code here.
-    }    
+    update();
+    }*/
+    public void act()
+    {
+    update();
+    }
+    public void looseHealth()
+    {
+    health = health - 1 ;
+    }
+    public void gainHealth()
+    {
+        health = health + 30;
+    }
+    public void update()
+    {
+         
+         setImage(new GreenfootImage(healthWidth + 2, healthHeight + 2));
+         GreenfootImage myImage = getImage();
+         myImage.setColor(Color.WHITE);
+         myImage.drawRect(0,0,healthWidth + 1 , healthHeight + 1);
+         myImage.setColor(Color.RED);
+         myImage.fillRect(1,1, health*pixelsPerHealthPoint , healthHeight);
+        /* GreenfootImage newImage = getImage();
+         newImage.clear();
+         
+         Color c = new Color(255,255,255,0);
+         Font f = new Font("Comic Sans MS", Font.ITALIC, 20);
+         newImage.setFont(f);
+         newImage.setColor(c);
+         newImage.fill();
+         newImage.setColor(Color.black);
+         World myWorld = getWorld();
+         FlappyWorld flappyworld = (FlappyWorld)myWorld;
+         Health health = flappyworld.getHealth();
+         newImage.drawString("" + health, 20, 40);
+         setImage(newImage);*/
+         
+    }
+    
 }

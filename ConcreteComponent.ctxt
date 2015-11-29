@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=ConcreteComponent
+comment1.params=world
+comment1.target=ConcreteComponent(FlappyWorld)
+comment2.params=
+comment2.target=FlappyWorld\ operation()
+numComments=3

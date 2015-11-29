@@ -35,6 +35,5 @@ public class PowerScore extends Actor
          newImage.drawString("" +score, 20, 40);
          setImage(newImage);
     }
-    
 }
 

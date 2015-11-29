@@ -6,13 +6,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Power extends Collectible
+public class Power extends Actor
 {
     
-   int POWER_SPEED = 7;
+   int PIPE_SPEED = 10;
+    soundClient sc = new soundClient();
     public void act() 
     {
-      setLocation(getX() - POWER_SPEED , getY());
+      setLocation(getX() - PIPE_SPEED , getY());
       turn(5);
     }   
 }
