@@ -84,13 +84,10 @@ public class FlappyBird extends Actor
         if(isTouching(Coin.class))
         {
               get(Coin.class);
+              notifyObservers();
               sc.handleSound("coin");
         }
-        if(isTouching(Coin2.class))
-       {
-           get(Coin2.class);
-           sc.handleSound("coin");
-       }
+        
         if(startgame.start==true){
             rotateFlappyBird();
             //move(5);
@@ -171,7 +168,7 @@ public class FlappyBird extends Actor
     //method to check whether flappybird touches the coin  
     public boolean isTouching(Class clss)
     {
-        Actor actor = getOneObjectAtOffset(5,5,clss);
+        Actor actor = getOneObjectAtOffset(0,0,clss);
         return actor != null;
     }
 

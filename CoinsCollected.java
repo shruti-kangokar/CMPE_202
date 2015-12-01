@@ -16,7 +16,7 @@ public class CoinsCollected extends Actor implements Observer
      public CoinsCollected(FlappyBird thesubject)
     {
         flappy = thesubject ;
-        setImage(new GreenfootImage(20,21));
+        setImage(new GreenfootImage(40,40));
         show();
     }
     
@@ -31,8 +31,8 @@ public class CoinsCollected extends Actor implements Observer
         GreenfootImage img = getImage();
         img.clear();
         img.setColor(Color.WHITE);
-        img.setFont(new Font("Trebuchet MS", Font.BOLD,13));
+        img.setFont(new Font("Trebuchet MS", Font.BOLD,25));
         //img.setFont(img.getFont().deriveFont(Font.BOLD,15));
-        img.drawString(""+score,4,20);
+        img.drawString(""+score,10,40);
     }
 }

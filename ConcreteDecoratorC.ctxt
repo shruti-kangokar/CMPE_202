@@ -6,4 +6,6 @@ comment2.params=
 comment2.target=FlappyWorld\ operation()
 comment3.params=world
 comment3.target=FlappyWorld\ addedBehavior(FlappyWorld)
-numComments=4
+comment4.params=P1\ P2\ P3\ world
+comment4.target=void\ CoinPattern(boolean,\ boolean,\ boolean,\ FlappyWorld)
+numComments=5

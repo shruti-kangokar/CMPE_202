@@ -27,7 +27,6 @@ public class FlappyWorld extends World
     Pipe topPipe;
     Pipe botPipe;
 
-    Coin2 newCoin1;
     Health health = new Health();
     //LevelChange levelchange;
     //Health health;
@@ -36,7 +35,11 @@ public class FlappyWorld extends World
     
     GreenfootSound music = new GreenfootSound("Music.mp3"); 
 
+    Coin[] coins = new Coin[5];
     CoinsCollected coinCltcd = new CoinsCollected(flappy);
+    
+    boolean b1 = true, b2 = false, b3 = false;
+    CoinImage coinImg;
    
     public FlappyWorld()
     {   
@@ -63,6 +66,9 @@ public class FlappyWorld extends World
 
         addObject(coinCltcd,99,8);
         flappy.attach(coinCltcd);
+        
+        coinImg = new CoinImage();
+        addObject(coinImg,65,21);
 
         prepare();
     }
