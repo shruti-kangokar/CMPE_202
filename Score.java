@@ -32,17 +32,14 @@ public class Score extends Actor
    public void setScore(int score)
    {
          GreenfootImage newImage = getImage();
-         newImage.clear();
          
-         Color c = new Color(255,255,255,0);
-         Font f = new Font("Comic Sans MS", Font.ITALIC, 20);
-         newImage.setFont(f);
-         
-         newImage.setColor(c);
-         newImage.fill();
-         newImage.setColor(Color.black);
-         newImage.drawString("" + score, 20, 40);
-         setImage(newImage);
+         GreenfootImage scoreImg = getImage();
+        scoreImg.clear();
+        scoreImg.setColor(Color.WHITE);
+        scoreImg.setFont(new Font("Trebuchet MS", Font.BOLD,20));
+        
+        scoreImg.drawString(""+score,20,40);
+        
    }
     
 }

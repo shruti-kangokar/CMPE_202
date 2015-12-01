@@ -88,7 +88,8 @@ public class FlappyBird extends Actor
               sc.handleSound("coin");
         }
         
-        if(startgame.start==true){
+        if(startgame.start==true)
+          {
             rotateFlappyBird();
             //move(5);
             setLocation(getX(), (int)(getY() + dy));
@@ -152,18 +153,16 @@ public class FlappyBird extends Actor
                 }
                 }
             }
-            
-           
             //If FlappyBird drops out of the world, Game Over:      
-            if(getY() > getWorld().getHeight()){
+            if(getY() > getWorld().getHeight() || getY() < -(getWorld().getHeight()) ){
                 sc.handleSound("stop");
                 displayGameOver();
-                
-            } 
+                }
             //update the UI
             dy = dy+g;
-       }
+       
     } 
+}
      
     //method to check whether flappybird touches the coin  
     public boolean isTouching(Class clss)

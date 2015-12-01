@@ -23,11 +23,12 @@ public class FlappyWorld extends World
     StartGame startgame;
     
     PowerImage pImg;
+    PipeImageScoreImage pipImgScrImg;
     
     Pipe topPipe;
     Pipe botPipe;
 
-    Health health = new Health();
+    Health health;
     //LevelChange levelchange;
     //Health health;
 
@@ -62,15 +63,23 @@ public class FlappyWorld extends World
         addObject(flappy,100,getHeight()/2);
         
         pImg=new PowerImage();
-        addObject(pImg,500,20);
+        addObject(pImg,520,20);
+        
+        pipImgScrImg = new PipeImageScoreImage();
+        addObject(pipImgScrImg,420, 20);
+        
 
         addObject(coinCltcd,99,8);
         flappy.attach(coinCltcd);
         
         coinImg = new CoinImage();
-        addObject(coinImg,65,21);
+        addObject(coinImg,65,20);
+        
+        health= new Health();
+        addObject(health, 250,20);
+        //health.setLocation(311,15);
 
-        prepare();
+        //prepare();
     }
 
     public Health getHealth()
@@ -81,10 +90,7 @@ public class FlappyWorld extends World
 
     private void prepare()
     {
-        addObject(health, 200,40);
-        //Health health = new Health();
-
-        health.setLocation(311,15);
+        
     }
 
     public void act()
@@ -158,9 +164,9 @@ public class FlappyWorld extends World
                     flappy.pipeIntersection = null;
                 }
             }
-          
+           
         }
-        
+       
     }
 
 }
