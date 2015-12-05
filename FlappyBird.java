@@ -1,5 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
+import java.awt.Color;
+import java.awt.Font;
 public class FlappyBird extends Actor
 {
     BirdState angryBirdState;
@@ -186,8 +188,26 @@ public class FlappyBird extends Actor
        
         PlayAgainButton playagainbutton=new PlayAgainButton();
         FinalScore finalscore = new FinalScore();
+        
         getWorld().addObject(playagainbutton,getWorld().getWidth()/2,getWorld().getHeight()/2+100);
         getWorld().addObject(finalscore,getWorld().getWidth()/2,getWorld().getHeight()/2-20);
+        
+        //finalscore.getImage();
+        GreenfootImage finalscoreImage = finalscore.getImage();
+        
+        
+        finalscoreImage.setColor(Color.BLACK);
+        finalscoreImage.setFont(new Font("Trebuchet MS", Font.BOLD,15));
+        //coinCltcd
+        String powerScore=Integer.toString(((FlappyWorld)getWorld()).powerScore);
+        String pipescore=Integer.toString(((FlappyWorld)getWorld()).score);
+        String coinScore=Integer.toString(((FlappyWorld)getWorld()).coinCltcd.score);
+        String totalScore=Integer.toString(((FlappyWorld)getWorld()).powerScore + ((FlappyWorld)getWorld()).score + ((FlappyWorld)getWorld()).coinCltcd.score);
+        
+        finalscoreImage.drawString(coinScore, 200, 60);
+        finalscoreImage.drawString(pipescore, 200, 77);
+        finalscoreImage.drawString(powerScore, 200, 95);
+        finalscoreImage.drawString(totalScore, 200, 120);
         
         
     }

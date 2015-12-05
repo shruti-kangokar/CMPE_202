@@ -185,8 +185,7 @@ public class FlappyWorld extends World
                     newPowerScore.setScore(powerScore);
                     flappy.pipeIntersection = null;
                 }
-            }
-           
+            }           
         }
         
        

@@ -14,10 +14,10 @@ public class Menu extends World
         super(600, 400, 1);
         pb = new PlayButt("Play"); //invoker PlayButton
         pc = new PlayCommand(); //menu world created a concrete command object.
-        addObject(pb,100,100);
+        addObject(pb,150,120);
         hb = new HelpButt("Help");
         hc = new HelpCommand();
-        addObject(hb,100, 300);
+        addObject(hb,400, 120);
         prepare();      
     }
     
