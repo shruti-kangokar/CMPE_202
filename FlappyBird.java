@@ -154,10 +154,7 @@ public class FlappyBird extends Actor
                 }
             }
             //If FlappyBird drops out of the world, Game Over:      
-            if(getY() > getWorld().getHeight() || getY() < -(getWorld().getHeight()) ){
-                sc.handleSound("stop");
-                displayGameOver();
-                }
+
             //update the UI
             dy = dy+g;
        
@@ -180,14 +177,18 @@ public class FlappyBird extends Actor
             getWorld().removeObject(actor);
         }
     }
-    private void displayGameOver(){
+    public void displayGameOver(){
         startgame.start=false;
         sc.handleSound("stop");
         GameOver gameOver = new GameOver();
-        getWorld().addObject(gameOver,getWorld().getWidth()/2,getWorld().getHeight()/2);
-        
+       
+        getWorld().addObject(gameOver,getWorld().getWidth()/2,getWorld().getHeight()/2-130);
+       
         PlayAgainButton playagainbutton=new PlayAgainButton();
-        getWorld().addObject(playagainbutton,getWorld().getWidth()/2,getWorld().getHeight()/2+70);
+        FinalScore finalscore = new FinalScore();
+        getWorld().addObject(playagainbutton,getWorld().getWidth()/2,getWorld().getHeight()/2+100);
+        getWorld().addObject(finalscore,getWorld().getWidth()/2,getWorld().getHeight()/2-20);
+        
         
     }
     

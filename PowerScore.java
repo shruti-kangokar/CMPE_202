@@ -24,7 +24,6 @@ public class PowerScore extends Actor
     {
          GreenfootImage newImage = getImage();
          newImage.clear();
-         
          Color c = new Color(255,255,255,0);
          Font f = new Font("Comic Sans MS", Font.ITALIC, 20);
          newImage.setFont(f);

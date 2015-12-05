@@ -45,7 +45,7 @@ public class FlappyWorld extends World
     public FlappyWorld()
     {   
         super(600, 400, 1, false); 
-        setPaintOrder(GameOver.class, FlappyBird.class,Score.class,Power.class, Pipe.class);
+        setPaintOrder(GameOver.class, FlappyBird.class,Score.class,Power.class,Health.class,CoinsCollected.class, Pipe.class, FinalScore.class);
         //setPaintOrder(FlappyBird.class,Pipe.class, Power.class,Coin.class,GameOver.class, Score.class);
         
         startgame=new StartGame();
@@ -85,6 +85,7 @@ public class FlappyWorld extends World
     public Health getHealth()
     {
        return health; 
+      
     }
     
 
@@ -101,6 +102,7 @@ public class FlappyWorld extends World
             this.removeObject(botPipe);
             this.removeObject(topPipe);
             this.removeObject(flappy);
+            this.removeObject(health);
             flappy.pipeIntState = false;
         }
         
@@ -123,6 +125,26 @@ public class FlappyWorld extends World
             this.removeObject(startgame);
             sc.handleSound("titlesong");
             pipeCounter++;
+            if (flappy.getY() <0 )
+            {
+                sc.handleSound("stop");
+                flappy.displayGameOver();
+                this.removeObject(health);
+                coinCltcd.show();
+                this.addObject(coinCltcd,getHeight()/2,getWidth()/2);
+
+                
+            }
+            if(flappy.getY() > getHeight())
+            {
+                sc.handleSound("stop");
+                flappy.displayGameOver();
+                this.removeObject(health);
+                coinCltcd.show();
+                this.addObject(coinCltcd,getHeight()/2,getWidth()/2);
+
+                
+            }
            if(!flappy.pipeIntState){
                
               if(pipeCounter % 100 == 0)
@@ -166,6 +188,7 @@ public class FlappyWorld extends World
             }
            
         }
+        
        
     }
 

@@ -1,11 +1,10 @@
 #BlueJ class context
-comment0.target=FlappyWorld
+comment0.params=
+comment0.target=FlappyWorld()
 comment1.params=
-comment1.target=FlappyWorld()
+comment1.target=Health\ getHealth()
 comment2.params=
-comment2.target=Health\ getHealth()
+comment2.target=void\ prepare()
 comment3.params=
-comment3.target=void\ prepare()
-comment4.params=
-comment4.target=void\ act()
-numComments=5
+comment3.target=void\ act()
+numComments=4

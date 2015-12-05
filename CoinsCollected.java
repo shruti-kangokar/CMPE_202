@@ -10,7 +10,7 @@ import java.awt.Font;
  */
 public class CoinsCollected extends Actor implements Observer
 {
-     private int score = 0;
+     public int score = 0;
      protected FlappyBird flappy;
      
      public CoinsCollected(FlappyBird thesubject)

@@ -1,13 +1,11 @@
 #BlueJ class context
-comment0.target=Health
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Health\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.params=
+comment0.target=void\ act()
+comment0.text=public\ Health()\r\n\ \ \ \ {\r\n\ \ \ \ update();\r\n}
 comment1.params=
-comment1.target=void\ act()
-comment1.text=public\ Health()\r\n\ \ \ \ {\r\n\ \ \ \ update();\r\n}
+comment1.target=void\ looseHealth()
 comment2.params=
-comment2.target=void\ looseHealth()
+comment2.target=void\ gainHealth()
 comment3.params=
-comment3.target=void\ gainHealth()
-comment4.params=
-comment4.target=void\ update()
-numComments=5
+comment3.target=void\ update()
+numComments=4

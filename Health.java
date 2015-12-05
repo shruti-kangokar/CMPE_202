@@ -38,9 +38,9 @@ public class Health extends Actor
          
          setImage(new GreenfootImage(healthWidth + 2, healthHeight + 2));
          GreenfootImage myImage = getImage();
-         myImage.setColor(Color.WHITE);
+         myImage.setColor(Color.GREEN);
          myImage.drawRect(0,0,healthWidth + 1 , healthHeight + 1);
-         myImage.setColor(Color.RED);
+         myImage.setColor(Color.WHITE);
          myImage.fillRect(1,1, health*pixelsPerHealthPoint , healthHeight);
         /* GreenfootImage newImage = getImage();
          newImage.clear();

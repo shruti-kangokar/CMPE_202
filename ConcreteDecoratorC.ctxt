@@ -1,11 +1,10 @@
 #BlueJ class context
-comment0.target=ConcreteDecoratorC
-comment1.params=c
-comment1.target=ConcreteDecoratorC(Component)
-comment2.params=
-comment2.target=FlappyWorld\ operation()
-comment3.params=world
-comment3.target=FlappyWorld\ addedBehavior(FlappyWorld)
-comment4.params=P1\ P2\ P3\ world
-comment4.target=void\ CoinPattern(boolean,\ boolean,\ boolean,\ FlappyWorld)
-numComments=5
+comment0.params=c
+comment0.target=ConcreteDecoratorC(Component)
+comment1.params=
+comment1.target=FlappyWorld\ operation()
+comment2.params=world
+comment2.target=FlappyWorld\ addedBehavior(FlappyWorld)
+comment3.params=P1\ P2\ P3\ world
+comment3.target=void\ CoinPattern(boolean,\ boolean,\ boolean,\ FlappyWorld)
+numComments=4

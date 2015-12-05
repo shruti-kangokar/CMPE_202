@@ -1,7 +1,6 @@
 #BlueJ class context
-comment0.target=Decorator
-comment1.params=c
-comment1.target=Decorator(Component)
-comment2.params=
-comment2.target=FlappyWorld\ operation()
-numComments=3
+comment0.params=c
+comment0.target=Decorator(Component)
+comment1.params=
+comment1.target=FlappyWorld\ operation()
+numComments=2
